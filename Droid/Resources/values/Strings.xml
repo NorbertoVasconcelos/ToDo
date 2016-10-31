@@ -2,4 +2,5 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">ToDo.Droid</string>
+	<string name="todo_placeholder">What needs to be done?</string>
 </resources>

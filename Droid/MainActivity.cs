@@ -4,10 +4,11 @@ using Android.OS;
 
 namespace ToDo.Droid
 {
-	[Activity(Label = "ToDo", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Theme = "@android:style/Theme.Material.Light", Label = "ToDo", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		ListView listView;
+		ToDoItem[] toDoItems = new ToDoItem[5];
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -16,12 +17,16 @@ namespace ToDo.Droid
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button>(Resource.Id.myButton);
+			listView = FindViewById<ListView>(Resource.Id.listview); // get reference to the listview in the layout
 
-			button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+			// Dummy test Data
+			for (int i = 0; i < 5; i++)
+			{
+				toDoItems[i] = new ToDoItem("Test");
+			}
+
+			listView.Adapter = new ToDoListAdapter(this, toDoItems); // populate the listview with data
 		}
 	}
 }
-
