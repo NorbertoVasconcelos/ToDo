@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using Android.Widget;
 using Android.Views;
 using Android.App;
@@ -6,10 +6,10 @@ namespace ToDo.Droid
 {
 	public class ToDoListAdapter : BaseAdapter<ToDoItem>
 	{
-		ToDoItem[] items;
+		ArrayList items = new ArrayList();
 		Activity context;
 
-		public ToDoListAdapter(Activity activity, ToDoItem[] items) : base()		
+		public ToDoListAdapter(Activity activity, ArrayList items) : base()		
 		{
 			this.items = items;
 			this.context = activity;
@@ -22,12 +22,16 @@ namespace ToDo.Droid
 
 		public override ToDoItem this[int position]
 		{
-			get { return items[position]; }
+			get 
+			{
+				ToDoItem item = (ToDoItem)items[position];
+				return item;
+			}
 		}
 
 		public override int Count
 		{
-			get { return items.Length; }
+			get { return items.Count; }
 		}
 
 		public override View GetView(int position, View convertView, ViewGroup parent)
@@ -37,7 +41,7 @@ namespace ToDo.Droid
 				listItemView = context.LayoutInflater.Inflate(Resource.Layout.TodoListItem, null);
 
 			// Populate the view with information from the item
-			var item = items[position];
+			var item = (ToDoItem)items[position];
 			listItemView.FindViewById<EditText>(Resource.Id.editTextName).Text = item.text;
 			listItemView.FindViewById<CheckBox>(Resource.Id.checkBoxCompleted).Selected = item.completed;
 			return listItemView;

@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Widget;
+using Android.Views.InputMethods;
 using Android.OS;
+using System.Collections;
+using System;
 
 namespace ToDo.Droid
 {
@@ -8,7 +11,9 @@ namespace ToDo.Droid
 	public class MainActivity : Activity
 	{
 		ListView listView;
-		ToDoItem[] toDoItems = new ToDoItem[5];
+		BaseAdapter<ToDoItem> adapter;
+		EditText editTextToDo;
+		ArrayList toDoItems = new ArrayList();
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -18,15 +23,35 @@ namespace ToDo.Droid
 			SetContentView(Resource.Layout.Main);
 
 			listView = FindViewById<ListView>(Resource.Id.listview); // get reference to the listview in the layout
+			adapter = new ToDoListAdapter(this, toDoItems);
+			listView.Adapter = adapter; // populate the listview with data
 
 
-			// Dummy test Data
-			for (int i = 0; i < 5; i++)
+			// EditText
+			editTextToDo = FindViewById<EditText>(Resource.Id.editTextToDo);
+			editTextToDo.EditorAction += HandleEditorAction;
+
+
+		}
+
+		private void HandleEditorAction(object sender, EditText.EditorActionEventArgs e)
+		{
+			Console.WriteLine("ENTROU NESSA PORRA!");
+			e.Handled = false;
+			if (e.ActionId == ImeAction.Done)
 			{
-				toDoItems[i] = new ToDoItem("Test");
+				Console.WriteLine("ACTION DONE");
+				EditText editText = (EditText)sender;
+				addToDoItem(editText.Text);
+				e.Handled = true;
 			}
+		}
 
-			listView.Adapter = new ToDoListAdapter(this, toDoItems); // populate the listview with data
+		private void addToDoItem(string itemName)
+		{
+			ToDoItem newItem = new ToDoItem(itemName);
+			toDoItems.Add(newItem);
+			adapter.NotifyDataSetChanged();
 		}
 	}
 }
