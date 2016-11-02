@@ -71,6 +71,11 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable\border_shadow.axml" />
     <AndroidResource Include="Resources\layout\TodoListItem.axml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_trash.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_trash.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_trash.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_trash.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_trash.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

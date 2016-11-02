@@ -3,7 +3,6 @@ using Android.Widget;
 using Android.Views.InputMethods;
 using Android.OS;
 using System.Collections;
-using System;
 
 namespace ToDo.Droid
 {
@@ -13,6 +12,7 @@ namespace ToDo.Droid
 		ListView listView;
 		BaseAdapter<ToDoItem> adapter;
 		EditText editTextToDo;
+		CheckBox checkBox;
 		ArrayList toDoItems = new ArrayList();
 
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -31,27 +31,55 @@ namespace ToDo.Droid
 			editTextToDo = FindViewById<EditText>(Resource.Id.editTextToDo);
 			editTextToDo.EditorAction += HandleEditorAction;
 
+			// CheckBox
+			checkBox = FindViewById<CheckBox>(Resource.Id.checkBoxSelectAll);
+			checkBox.CheckedChange += (sender, e) =>
+			{
+				CheckBox c = (CheckBox)sender;
+				selectAll(c.Checked);
+			};
+		}
 
+		private void HandleCheckBoxAction(object sender, CheckBox.EditorActionEventArgs e)
+		{
+			CheckBox c = (CheckBox)sender;
+			selectAll(c.Checked);
+			e.Handled = true;
 		}
 
 		private void HandleEditorAction(object sender, EditText.EditorActionEventArgs e)
 		{
-			Console.WriteLine("ENTROU NESSA PORRA!");
 			e.Handled = false;
 			if (e.ActionId == ImeAction.Done)
 			{
-				Console.WriteLine("ACTION DONE");
 				EditText editText = (EditText)sender;
 				addToDoItem(editText.Text);
 				e.Handled = true;
 			}
 		}
 
+		private void selectAll(bool isSelected)
+		{
+			closeKeyboard();
+			foreach (ToDoItem item in toDoItems)
+			{
+				item.completed = isSelected;
+			}
+			adapter.NotifyDataSetChanged();
+		}
+
 		private void addToDoItem(string itemName)
 		{
+			editTextToDo.Text = "";
 			ToDoItem newItem = new ToDoItem(itemName);
 			toDoItems.Add(newItem);
 			adapter.NotifyDataSetChanged();
+		}
+
+		private void closeKeyboard()
+		{
+			InputMethodManager manager = (InputMethodManager)GetSystemService(InputMethodService);
+			manager.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, 0);
 		}
 	}
 }

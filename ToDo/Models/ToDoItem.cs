@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ToDo
 {
-	public struct ToDoItem
+	public class ToDoItem
 	{
 		public string text;
 		public bool completed;

@@ -2,22 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp">
     <LinearLayout
         android:id="@+id/contianerCreateToDo"
         android:orientation="horizontal"
+        android:weightSum="6.0"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/border_shadow"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp">
+        android:background="@drawable/border_shadow">
         <CheckBox
+            android:layout_weight="0.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxSelectAll" />
         <EditText
-            android:layout_width="match_parent"
+            android:layout_weight="5.0"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextToDo"
             android:hint="@string/todo_placeholder"
@@ -29,6 +30,7 @@
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_margin="20dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_shadow" />
 </LinearLayout>

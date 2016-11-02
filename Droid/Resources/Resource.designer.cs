@@ -60,6 +60,9 @@ namespace ToDo.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f060006
+			public const int buttonDelete = 2131099654;
+			
 			// aapt resource value: 0x7f060004
 			public const int checkBoxCompleted = 2131099652;
 			
@@ -111,7 +114,10 @@ namespace ToDo.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Icon = 2130903040;
+			public const int ic_trash = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Icon = 2130903041;
 			
 			static Mipmap()
 			{

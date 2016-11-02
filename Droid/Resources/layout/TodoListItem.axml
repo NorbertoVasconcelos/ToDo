@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/border_shadow">
+    android:weightSum="6.0"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
     <CheckBox
-        android:layout_width="wrap_content"
+        android:layout_weight="1.0"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/checkBoxCompleted" />
     <EditText
         android:inputType="text"
-        android:layout_width="match_parent"
+        android:layout_weight="4.0"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/editTextName" />
+        android:id="@+id/editTextName"
+        android:background="@android:color/transparent" />
+    <Button
+        android:layout_weight="1.0"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/buttonDelete"
+        android:text="DEL" />
 </LinearLayout>

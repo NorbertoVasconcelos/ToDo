@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.Views;
 using Android.App;
+using System;
 namespace ToDo.Droid
 {
 	public class ToDoListAdapter : BaseAdapter<ToDoItem>
@@ -43,7 +44,10 @@ namespace ToDo.Droid
 			// Populate the view with information from the item
 			var item = (ToDoItem)items[position];
 			listItemView.FindViewById<EditText>(Resource.Id.editTextName).Text = item.text;
-			listItemView.FindViewById<CheckBox>(Resource.Id.checkBoxCompleted).Selected = item.completed;
+			CheckBox checkbox = listItemView.FindViewById<CheckBox>(Resource.Id.checkBoxCompleted);
+			//checkbox.Selected = item.completed;
+			checkbox.Checked = item.completed;
+
 			return listItemView;
 		}
 	}
