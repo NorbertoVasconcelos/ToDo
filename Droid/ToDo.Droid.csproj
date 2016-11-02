@@ -76,6 +76,11 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_trash.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_trash.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_trash.png" />
+    <AndroidResource Include="Resources\values\CustomTheme.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\drawable\button.axml" />
+    <AndroidResource Include="Resources\drawable\button_pressed.axml" />
+    <AndroidResource Include="Resources\drawable\button_normal.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<style name="CustomTheme" parent="@android:style/Theme.Material.Light">
+		<item name="android:colorPrimary">@color/emerald</item>
+		<item name="android:colorPrimaryDark">@color/nephritis</item>
+		<item name="android:colorAccent">@color/emerald</item>
+		<item name="android:statusBarColor">@color/emerald</item>
+		<item name="android:textColorPrimary">@color/white</item>
+		<item name="android:navigationBarColor">@color/emerald</item>
+	</style>
+
+</resources>

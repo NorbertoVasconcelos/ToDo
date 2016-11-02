@@ -41,11 +41,45 @@ namespace ToDo.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f050002
+			public const int darkGray = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int emerald = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int nephritis = 2131034113;
+			
+			// aapt resource value: 0x7f050003
+			public const int white = 2131034115;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
 			public const int border_shadow = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int button = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int button_normal = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int button_pressed = 2130837507;
 			
 			static Drawable()
 			{
@@ -60,26 +94,26 @@ namespace ToDo.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060006
-			public const int buttonDelete = 2131099654;
+			// aapt resource value: 0x7f080006
+			public const int buttonDelete = 2131230726;
 			
-			// aapt resource value: 0x7f060004
-			public const int checkBoxCompleted = 2131099652;
+			// aapt resource value: 0x7f080004
+			public const int checkBoxCompleted = 2131230724;
 			
-			// aapt resource value: 0x7f060001
-			public const int checkBoxSelectAll = 2131099649;
+			// aapt resource value: 0x7f080001
+			public const int checkBoxSelectAll = 2131230721;
 			
-			// aapt resource value: 0x7f060000
-			public const int contianerCreateToDo = 2131099648;
+			// aapt resource value: 0x7f080000
+			public const int contianerCreateToDo = 2131230720;
 			
-			// aapt resource value: 0x7f060005
-			public const int editTextName = 2131099653;
+			// aapt resource value: 0x7f080005
+			public const int editTextName = 2131230725;
 			
-			// aapt resource value: 0x7f060002
-			public const int editTextToDo = 2131099650;
+			// aapt resource value: 0x7f080002
+			public const int editTextToDo = 2131230722;
 			
-			// aapt resource value: 0x7f060003
-			public const int listview = 2131099651;
+			// aapt resource value: 0x7f080003
+			public const int listview = 2131230723;
 			
 			static Id()
 			{
@@ -132,14 +166,14 @@ namespace ToDo.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int app_name = 2131034113;
+			// aapt resource value: 0x7f070001
+			public const int app_name = 2131165185;
 			
-			// aapt resource value: 0x7f050000
-			public const int hello = 2131034112;
+			// aapt resource value: 0x7f070000
+			public const int hello = 2131165184;
 			
-			// aapt resource value: 0x7f050002
-			public const int todo_placeholder = 2131034114;
+			// aapt resource value: 0x7f070002
+			public const int todo_placeholder = 2131165186;
 			
 			static String()
 			{
@@ -147,6 +181,22 @@ namespace ToDo.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int CustomTheme = 2131099648;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

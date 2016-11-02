@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace ToDo.Droid
 {
-	[Activity(Theme = "@android:style/Theme.Material.Light", Label = "ToDo", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Theme = "@style/CustomTheme", Label = "ToDo", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
 		ListView listView;
