@@ -29,6 +29,12 @@
             android:imeOptions="actionDone"
             android:singleLine="true" />
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/buttonClearCompleted"
+        android:background="@drawable/button"
+        android:text="Clear Completed" />
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"

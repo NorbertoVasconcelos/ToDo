@@ -2,7 +2,7 @@
 using Android.Widget;
 using Android.Views.InputMethods;
 using Android.OS;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace ToDo.Droid
 {
@@ -10,10 +10,12 @@ namespace ToDo.Droid
 	public class MainActivity : Activity
 	{
 		ListView listView;
-		BaseAdapter<ToDoItem> adapter;
 		EditText editTextToDo;
 		CheckBox checkBox;
-		ArrayList toDoItems = new ArrayList();
+		Button clearCompleted;
+
+		BaseAdapter<ToDoItem> adapter;
+		IToDoController toDoController;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -22,9 +24,15 @@ namespace ToDo.Droid
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
-			listView = FindViewById<ListView>(Resource.Id.listview); // get reference to the listview in the layout
-			adapter = new ToDoListAdapter(this, toDoItems);
-			listView.Adapter = adapter; // populate the listview with data
+			// Initialize ToDoController
+			toDoController = new ToDoController();
+
+
+
+			// List View
+			listView = FindViewById<ListView>(Resource.Id.listview);
+			adapter = new ToDoListAdapter(this, toDoController.items);
+			listView.Adapter = adapter;
 
 
 			// EditText
@@ -38,16 +46,15 @@ namespace ToDo.Droid
 				CheckBox c = (CheckBox)sender;
 				selectAll(c.Checked);
 			};
+
+			// ClearCompleted Button
+			clearCompleted = FindViewById<Button>(Resource.Id.buttonClearCompleted);
+			clearCompleted.Click += delegate {
+				clearCompletedItems();
+			};
 		}
 
-		private void HandleCheckBoxAction(object sender, CheckBox.EditorActionEventArgs e)
-		{
-			CheckBox c = (CheckBox)sender;
-			selectAll(c.Checked);
-			e.Handled = true;
-		}
-
-		private void HandleEditorAction(object sender, EditText.EditorActionEventArgs e)
+		private void HandleEditorAction(object sender, Button.EditorActionEventArgs e)
 		{
 			e.Handled = false;
 			if (e.ActionId == ImeAction.Done)
@@ -60,19 +67,25 @@ namespace ToDo.Droid
 
 		private void selectAll(bool isSelected)
 		{
+			toDoController.setAllItemsCompleted(isSelected);
+
 			closeKeyboard();
-			foreach (ToDoItem item in toDoItems)
-			{
-				item.completed = isSelected;
-			}
+			adapter.NotifyDataSetChanged();
+		}
+
+		private void clearCompletedItems()
+		{
+			toDoController.deleteCompletedItems();
+
+			closeKeyboard();
 			adapter.NotifyDataSetChanged();
 		}
 
 		private void addToDoItem(string itemName)
 		{
+			toDoController.addItem(itemName);
+
 			editTextToDo.Text = "";
-			ToDoItem newItem = new ToDoItem(itemName);
-			toDoItems.Add(newItem);
 			adapter.NotifyDataSetChanged();
 		}
 

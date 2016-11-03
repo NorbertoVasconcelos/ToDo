@@ -75,12 +75,6 @@ namespace ToDo.Droid
 			// aapt resource value: 0x7f020001
 			public const int button = 2130837505;
 			
-			// aapt resource value: 0x7f020002
-			public const int button_normal = 2130837506;
-			
-			// aapt resource value: 0x7f020003
-			public const int button_pressed = 2130837507;
-			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -94,11 +88,14 @@ namespace ToDo.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080006
-			public const int buttonDelete = 2131230726;
+			// aapt resource value: 0x7f080003
+			public const int buttonClearCompleted = 2131230723;
 			
-			// aapt resource value: 0x7f080004
-			public const int checkBoxCompleted = 2131230724;
+			// aapt resource value: 0x7f080007
+			public const int buttonDelete = 2131230727;
+			
+			// aapt resource value: 0x7f080005
+			public const int checkBoxCompleted = 2131230725;
 			
 			// aapt resource value: 0x7f080001
 			public const int checkBoxSelectAll = 2131230721;
@@ -106,14 +103,14 @@ namespace ToDo.Droid
 			// aapt resource value: 0x7f080000
 			public const int contianerCreateToDo = 2131230720;
 			
-			// aapt resource value: 0x7f080005
-			public const int editTextName = 2131230725;
+			// aapt resource value: 0x7f080006
+			public const int editTextName = 2131230726;
 			
 			// aapt resource value: 0x7f080002
 			public const int editTextToDo = 2131230722;
 			
-			// aapt resource value: 0x7f080003
-			public const int listview = 2131230723;
+			// aapt resource value: 0x7f080004
+			public const int listview = 2131230724;
 			
 			static Id()
 			{
