@@ -3,7 +3,8 @@
     android:orientation="horizontal"
     android:weightSum="6.0"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
     <CheckBox
         android:layout_weight="1.0"
         android:layout_width="0dp"
@@ -13,7 +14,7 @@
         android:inputType="text"
         android:layout_weight="4.0"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
         android:id="@+id/editTextName"
         android:textColor="@color/darkGray"
         android:background="@android:color/transparent" />
